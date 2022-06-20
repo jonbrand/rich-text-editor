@@ -1,9 +1,10 @@
 import './App.css';
+import { Editor } from './components/Editor';
 
 function App() {
   return (
     <>
-      <h1>Ola</h1>
+      <Editor />
     </>
   );
 }
