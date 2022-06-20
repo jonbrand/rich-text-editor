@@ -1,10 +1,10 @@
 import './App.css';
-import { Editor } from './components/Editor';
+import { TextEditor } from './components/Editor';
 
 function App() {
   return (
     <>
-      <Editor />
+      <TextEditor />
     </>
   );
 }
