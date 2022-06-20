@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { createEditor, Editor, Transforms } from 'slate';
+import { createEditor, Editor, Transforms, Text } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
 
 const CustomEditor = {
