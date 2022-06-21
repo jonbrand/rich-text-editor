@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
+import { Navbar } from "react-bootstrap";
 import { createEditor, Editor, Transforms, Text } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
+import { initialValue } from './Editor.constants';
 
 const CustomEditor = {
   isBoldMarkActive(editor) {
@@ -39,14 +41,7 @@ const CustomEditor = {
   },
 }
 
-const initialValue = [
-  {
-    type: 'paragraph',
-    children: [{ text: 'Escreva aqui...' }],
-  },
-];
-
-export const TextEditor = () => {
+export const TextEditor = ({ onChange }) => {
   const [editor] = useState(() => withReact(createEditor()));
 
   const renderElement = useCallback(props => {
@@ -63,49 +58,65 @@ export const TextEditor = () => {
   }, [])
 
   return(
-    <Slate editor={editor} value={initialValue}>
-      <div>
-        <button
-          onMouseDown={e => {
-            e.preventDefault()
-            CustomEditor.toggleBoldMark(editor)
-          }}
-        >
-          Bold
-        </button>
-        <button
-          onMouseDown={e => {
-            e.preventDefault()
-            CustomEditor.toggleCodeBlock(editor)
-          }}
-        >
-          Code Block
-        </button>
+    <>
+      <Navbar bg='dark' variant='dark'>
+        <Navbar.Brand href="#">
+          <img
+            alt=""
+            src="../images/logo.png"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{" "}
+          Editor
+        </Navbar.Brand>
+      </Navbar>
+      <div className="App">
+        <Slate editor={editor} value={initialValue} onChange={onChange}>
+          <div>
+            <button
+              onMouseDown={e => {
+                e.preventDefault()
+                CustomEditor.toggleBoldMark(editor)
+              }}
+            >
+              Bold
+            </button>
+            <button
+              onMouseDown={e => {
+                e.preventDefault()
+                CustomEditor.toggleCodeBlock(editor)
+              }}
+            >
+              Code Block
+            </button>
+          </div>
+          <Editable 
+            renderElement={renderElement}
+            renderLeaf={renderLeaf}
+            onKeyDown={e => {
+              if(!e.ctrlKey) {
+                return
+              }
+              // eslint-disable-next-line default-case
+              switch (e.key) {
+                case 'p': {
+                  e.preventDefault();
+                  CustomEditor.toggleCodeBlock(editor);
+                  break
+                }
+                case 'b': {
+                  e.preventDefault()
+                  CustomEditor.toggleBoldMark(editor);
+                  break
+                }
+              }
+            }
+          }
+          />
+        </Slate>
       </div>
-      <Editable 
-        renderElement={renderElement}
-        renderLeaf={renderLeaf}
-        onKeyDown={e => {
-          if(!e.ctrlKey) {
-            return
-          }
-          // eslint-disable-next-line default-case
-          switch (e.key) {
-            case 'p': {
-              e.preventDefault();
-              CustomEditor.toggleCodeBlock(editor);
-              break
-            }
-            case 'b': {
-              e.preventDefault()
-              CustomEditor.toggleBoldMark(editor);
-              break
-            }
-          }
-        }
-      }
-      />
-    </Slate>
+    </>
   )
 }
 
