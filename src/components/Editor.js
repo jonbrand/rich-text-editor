@@ -64,6 +64,24 @@ export const TextEditor = () => {
 
   return(
     <Slate editor={editor} value={initialValue}>
+      <div>
+        <button
+          onMouseDown={e => {
+            e.preventDefault()
+            CustomEditor.toggleBoldMark(editor)
+          }}
+        >
+          Bold
+        </button>
+        <button
+          onMouseDown={e => {
+            e.preventDefault()
+            CustomEditor.toggleCodeBlock(editor)
+          }}
+        >
+          Code Block
+        </button>
+      </div>
       <Editable 
         renderElement={renderElement}
         renderLeaf={renderLeaf}
@@ -104,7 +122,7 @@ const DefaultElement = props => {
 }
 
 const Leaf = props => {
-  console.log(props)
+  
   return (
     <span
       {...props.attributes}
