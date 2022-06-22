@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { createEditor, Editor, Transforms, Text } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
+import { Toolbar } from "../Toolbar/Toolbar";
 import { initialValue } from './Editor.constants';
 
 export const CustomEditor = {
@@ -59,6 +60,7 @@ export const TextEditor = ({ onChange }) => {
   return(
     <>
       <div className="App">
+        <Toolbar />
         <Slate editor={editor} value={initialValue} onChange={onChange}>
           <Editable 
             renderElement={renderElement}

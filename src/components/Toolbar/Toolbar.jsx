@@ -1,4 +1,5 @@
-import { CustomEditor } from '../Editor/Editor'
+import { CustomEditor } from '../Editor/Editor';
+import { Bold } from '../Bold/Bold';
 import { NavbarContainer, LogoWrapper, Logo, LogoText, ButtonsWrapper } from './styles';
 import logo from '../../images/logo.png'
 
@@ -10,14 +11,7 @@ export const Toolbar = ({ editor }) => {
           <LogoText>Rich Editor</LogoText>
         </LogoWrapper>
         <ButtonsWrapper>
-          <button
-            onMouseDown={e => {
-              e.preventDefault()
-              CustomEditor.toggleBoldMark(editor)
-            }}
-          >
-            Bold
-          </button>
+          <Bold />
           <button
             onMouseDown={e => {
               e.preventDefault()
