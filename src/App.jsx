@@ -1,14 +1,13 @@
-import './App.css';
+import { GlobalStyles } from './styles/global';
 import { TextEditor } from './components/Editor/Editor';
 import { Toolbar } from './components/Toolbar/Toolbar';
 
-function App() {
+export function App() {
   return (
     <>
+      <GlobalStyles />
       <Toolbar />
       <TextEditor />
     </>
   );
 }
-
-export default App;
