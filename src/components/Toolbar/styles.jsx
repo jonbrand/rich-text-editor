@@ -5,7 +5,7 @@ export const NavbarContainer = styled.nav`
   justify-content: center;
   align-items: center;
 
-  background: grey;
+  background: var(--background-secondary);
   flex-direction: column;
 `;
 
@@ -23,6 +23,7 @@ export const Logo = styled.img`
 export const LogoText = styled.h1`
   font-size: 2rem;
   font-weight: 600;
+  color: var(--green)
 `;
 
 export const ButtonsWrapper = styled.div`
