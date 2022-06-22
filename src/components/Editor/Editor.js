@@ -1,10 +1,9 @@
 import React, { useCallback, useState } from "react";
-import { Navbar } from "react-bootstrap";
 import { createEditor, Editor, Transforms, Text } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
 import { initialValue } from './Editor.constants';
 
-const CustomEditor = {
+export const CustomEditor = {
   isBoldMarkActive(editor) {
     const [match] = Editor.nodes(editor, {
       match: n => n.bold === true,
@@ -59,38 +58,8 @@ export const TextEditor = ({ onChange }) => {
 
   return(
     <>
-      <Navbar bg='dark' variant='dark'>
-        <Navbar.Brand href="#">
-          <img
-            alt=""
-            src="../images/logo.png"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{" "}
-          Editor
-        </Navbar.Brand>
-      </Navbar>
       <div className="App">
         <Slate editor={editor} value={initialValue} onChange={onChange}>
-          <div>
-            <button
-              onMouseDown={e => {
-                e.preventDefault()
-                CustomEditor.toggleBoldMark(editor)
-              }}
-            >
-              Bold
-            </button>
-            <button
-              onMouseDown={e => {
-                e.preventDefault()
-                CustomEditor.toggleCodeBlock(editor)
-              }}
-            >
-              Code Block
-            </button>
-          </div>
           <Editable 
             renderElement={renderElement}
             renderLeaf={renderLeaf}
