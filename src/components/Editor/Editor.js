@@ -27,7 +27,7 @@ export const CustomEditor = {
     const [match] = Editor.nodes(editor, {
       match: n => n.type === 'code',
     })
-
+    console.log(match)
     return !!match
   },
 
@@ -41,7 +41,7 @@ export const CustomEditor = {
   },
 
   toggleItalicMark(editor) {
-    const isActive = CustomEditor.isBoldMarkActive(editor)
+    const isActive = CustomEditor.isItalicMarkActive(editor)
     Editor.addMark(
       editor,
       'italic',
@@ -51,6 +51,7 @@ export const CustomEditor = {
 
   toggleCodeBlock(editor) {
     const isActive = CustomEditor.isCodeBlockActive(editor)
+    
     Transforms.setNodes(
       editor,
       { type: isActive ? null : 'code'},
@@ -117,7 +118,7 @@ export const TextEditor = ({ onChange }) => {
 const CodeElement = props => {
   return (
     <pre {...props.attributes}>
-      <code>{props.children}</code>
+      <code style={{ background: 'var(--gray)', border: '1px solid #cdcdcc' }}>{props.children}</code>
     </pre>
   )
 }
@@ -127,11 +128,15 @@ const DefaultElement = props => {
 }
 
 const Leaf = props => {
-  
   return (
     <span
       {...props.attributes}
-      style={{ fontWeight: props.leaf.bold ? 'bold' : 'normal'}}
+      style={
+        { 
+          fontWeight: props.leaf.bold ? 'bold' : 'normal',
+          fontStyle: props.leaf.italic ? 'italic' : 'normal',
+        }
+      }
     >
       {props.children}
     </span>
