@@ -1,9 +1,10 @@
-import { CustomEditor } from '../Editor/Editor';
 import { Bold } from '../Bold/Bold';
+import { CodeBlock } from '../CodeBlock/CodeBlock';
 import { NavbarContainer, LogoWrapper, Logo, LogoText, ButtonsWrapper } from './styles';
-import logo from '../../images/logo.png'
+import logo from '../../images/logo.png';
 
 export const Toolbar = ({ editor }) => {
+  console.log(editor)
   return(
     <NavbarContainer>
         <LogoWrapper>
@@ -12,14 +13,7 @@ export const Toolbar = ({ editor }) => {
         </LogoWrapper>
         <ButtonsWrapper>
           <Bold editor={editor} />
-          <button
-            onMouseDown={e => {
-              e.preventDefault()
-              CustomEditor.toggleCodeBlock(editor)
-            }}
-          >
-            Code Block
-          </button>
+          <CodeBlock />
         </ButtonsWrapper>
       </NavbarContainer>
   )

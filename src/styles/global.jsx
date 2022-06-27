@@ -24,7 +24,7 @@ export const GlobalStyles = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
       font-family: 'Montserrat', sans-serif;
-      color: #fff;
+      color: #000;
   }
 
   html {
@@ -40,7 +40,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-      background: var(--background);
+      background: white;
       -webkit-font-smoothing: antialiased;
   }
   
