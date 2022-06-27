@@ -14,6 +14,15 @@ export const CustomEditor = {
     return !!match
   },
 
+  isItalicMarkActive(editor) {
+    const [match] = Editor.nodes(editor, {
+      match: n => n.italic === true,
+      universal: true,
+    })
+
+    return !!match
+  },
+
   isCodeBlockActive(editor) {
     const [match] = Editor.nodes(editor, {
       match: n => n.type === 'code',
@@ -27,6 +36,15 @@ export const CustomEditor = {
     Editor.addMark(
       editor,
       'bold',
+      !isActive
+    )
+  },
+
+  toggleItalicMark(editor) {
+    const isActive = CustomEditor.isBoldMarkActive(editor)
+    Editor.addMark(
+      editor,
+      'italic',
       !isActive
     )
   },
@@ -79,6 +97,11 @@ export const TextEditor = ({ onChange }) => {
                 case 'b': {
                   e.preventDefault()
                   CustomEditor.toggleBoldMark(editor);
+                  break
+                }
+                case 'i': {
+                  e.preventDefault()
+                  CustomEditor.toggleItalicMark(editor);
                   break
                 }
               }

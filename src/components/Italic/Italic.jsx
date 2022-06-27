@@ -1,16 +1,16 @@
 import { Button, NavBtn } from './styles';
 import { CustomEditor } from '../Editor/Editor';
 
-export const CodeBlock = ({ editor }) => {
+export const Italic = ({ editor }) => {
   return(
     <NavBtn>
       <Button
         onMouseDown={e => {
           e.preventDefault()
-          CustomEditor.toggleCodeBlock(editor)
+          CustomEditor.toggleItalicMark(editor)
         }}
       >
-        <p>{'<>'}</p>
+        <p>I</p>
       </Button>
     </NavBtn>
   )
