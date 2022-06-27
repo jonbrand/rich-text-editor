@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const ButtonComponent = styled.button`
   background: ${({ primary }) => (primary ? '#1C1C1C' : '#969cb3')};
 
   white-space: nowrap;
