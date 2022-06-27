@@ -11,7 +11,7 @@ export const Toolbar = ({ editor }) => {
           <LogoText>Rich Editor</LogoText>
         </LogoWrapper>
         <ButtonsWrapper>
-          <Bold />
+          <Bold editor={editor} />
           <button
             onMouseDown={e => {
               e.preventDefault()

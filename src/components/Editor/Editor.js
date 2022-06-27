@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { createEditor, Editor, Transforms, Text } from 'slate';
+import { createEditor, Editor, Transforms } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
 import { Toolbar } from "../Toolbar/Toolbar";
 import { initialValue } from './Editor.constants';
@@ -24,10 +24,10 @@ export const CustomEditor = {
 
   toggleBoldMark(editor) {
     const isActive = CustomEditor.isBoldMarkActive(editor)
-    Transforms.setNodes(
+    Editor.addMark(
       editor,
-      { bold: isActive ? null : true },
-      { match: n => Text.isText(n), split: true }
+      'bold',
+      !isActive
     )
   },
 
@@ -60,7 +60,7 @@ export const TextEditor = ({ onChange }) => {
   return(
     <>
       <div className="App">
-        <Toolbar />
+        <Toolbar editor={editor} />
         <Slate editor={editor} value={initialValue} onChange={onChange}>
           <Editable 
             renderElement={renderElement}
