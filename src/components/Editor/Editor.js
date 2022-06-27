@@ -23,6 +23,15 @@ export const CustomEditor = {
     return !!match
   },
 
+  isUnderlineMarkActive(editor) {
+    const [match] = Editor.nodes(editor, {
+      match: n => n.underline === true,
+      universal: true,
+    })
+
+    return !!match
+  },
+
   isCodeBlockActive(editor) {
     const [match] = Editor.nodes(editor, {
       match: n => n.type === 'code',
@@ -45,6 +54,15 @@ export const CustomEditor = {
     Editor.addMark(
       editor,
       'italic',
+      !isActive
+    )
+  },
+
+  toggleUnderlineMark(editor) {
+    const isActive = CustomEditor.isItalicMarkActive(editor)
+    Editor.addMark(
+      editor,
+      'underline',
       !isActive
     )
   },
@@ -135,6 +153,7 @@ const Leaf = props => {
         { 
           fontWeight: props.leaf.bold ? 'bold' : 'normal',
           fontStyle: props.leaf.italic ? 'italic' : 'normal',
+          textDecoration: props.leaf.underline ? 'underline' : 'normal'
         }
       }
     >

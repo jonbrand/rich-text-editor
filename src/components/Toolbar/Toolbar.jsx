@@ -1,6 +1,7 @@
 import { Bold } from '../Bold/Bold';
 import { CodeBlock } from '../CodeBlock/CodeBlock';
 import { Italic } from '../Italic/Italic';
+import { Underline } from '../Underline/Underline';
 import { NavbarContainer, LogoWrapper, Logo, LogoText, ButtonsWrapper } from './styles';
 import logo from '../../images/logo.png';
 
@@ -13,8 +14,9 @@ export const Toolbar = ({ editor }) => {
         </LogoWrapper>
         <ButtonsWrapper>
           <Bold editor={editor} />
-          <CodeBlock editor={editor} />
           <Italic editor={editor} />
+          <Underline editor={editor} />
+          <CodeBlock editor={editor} />
         </ButtonsWrapper>
       </NavbarContainer>
   )
