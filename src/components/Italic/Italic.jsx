@@ -1,17 +1,17 @@
-import { Button, NavBtn } from './styles';
+import { Button } from '../Button/Button';
 import { CustomEditor } from '../Editor/Editor';
 
 export const Italic = ({ editor }) => {
+  const icon = 'I';
   return(
-    <NavBtn>
+    <p style={{ fontStyle: 'italic'}}>
       <Button
         onMouseDown={e => {
           e.preventDefault()
           CustomEditor.toggleItalicMark(editor)
         }}
-      >
-        <p>I</p>
-      </Button>
-    </NavBtn>
+        icon={icon}
+      />
+    </p>
   )
 }

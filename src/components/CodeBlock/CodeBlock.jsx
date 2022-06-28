@@ -1,17 +1,15 @@
-import { Button, NavBtn } from './styles';
+import { Button } from '../Button/Button';
 import { CustomEditor } from '../Editor/Editor';
 
 export const CodeBlock = ({ editor }) => {
+  const icon = '<>';
   return(
-    <NavBtn>
-      <Button
-        onMouseDown={e => {
-          e.preventDefault()
-          CustomEditor.toggleCodeBlock(editor)
-        }}
-      >
-        <p>{'<>'}</p>
-      </Button>
-    </NavBtn>
+    <Button
+      onMouseDown={e => {
+        e.preventDefault()
+        CustomEditor.toggleCodeBlock(editor)
+      }}
+      icon={icon}
+    />
   )
 }

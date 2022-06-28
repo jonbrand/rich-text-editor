@@ -1,9 +1,9 @@
 import { ButtonComponent, NavBtn } from './styles';
 
-export const Button = () => {
+export const Button = ({ icon }) => {
   return(
     <NavBtn>
-      <ButtonComponent />
+      <ButtonComponent>{icon}</ButtonComponent>
     </NavBtn>
   )
 }
