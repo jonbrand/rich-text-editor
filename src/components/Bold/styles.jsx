@@ -19,10 +19,6 @@ export const Button = styled.button`
   align-items: center;
   border-radius: 5px;
 
-  color: ${({ primary }) => (primary ? '#FFF' : '#363f5f')};
-
-  font-size: ${({ big }) => (big ? '20px' : '14px')};
-
   &:hover {
     background: #969cb3;
     transform: translateY(-2px);

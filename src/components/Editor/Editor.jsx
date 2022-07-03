@@ -3,6 +3,7 @@ import { createEditor, Editor, Transforms } from 'slate';
 import { Slate, Editable, withReact } from 'slate-react';
 import { Toolbar } from "../Toolbar/Toolbar";
 import { initialValue } from './Editor.constants';
+import { EditorContainer } from './styles'
 
 export const CustomEditor = {
   isBoldMarkActive(editor) {
@@ -95,7 +96,7 @@ export const TextEditor = ({ onChange }) => {
 
   return(
     <>
-      <div className="App">
+      <EditorContainer>
         <Toolbar editor={editor} />
         <Slate editor={editor} value={initialValue} onChange={onChange}>
           <Editable 
@@ -127,7 +128,7 @@ export const TextEditor = ({ onChange }) => {
           }
           />
         </Slate>
-      </div>
+      </EditorContainer>
     </>
   )
 }

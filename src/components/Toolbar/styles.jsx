@@ -5,8 +5,9 @@ export const NavbarContainer = styled.nav`
   justify-content: center;
   align-items: center;
 
-  background: var(--background-secondary);
+  background: var(--background);
   flex-direction: column;
+  margin-top: 2rem;
 `;
 
 export const LogoWrapper = styled.div`
