@@ -1,17 +1,17 @@
+import * as S from './styles';
 import { CustomEditor } from '../Editor/Editor';
-import { Button } from '../Button/Button';
 
 export const Underline = ({ editor }) => {
-  const icon = 'U';
   return(
-    <p style={{ textDecoration: 'underline'}}>
-      <Button
+    <S.NavBtn>
+      <S.Button
         onMouseDown={e => {
           e.preventDefault()
           CustomEditor.toggleUnderlineMark(editor)
         }}
-        icon={icon}
-        />
-    </p>
+      >
+        <p>U</p>
+      </S.Button>
+    </S.NavBtn>
   )
 }

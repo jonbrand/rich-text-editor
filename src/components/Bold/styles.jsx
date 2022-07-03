@@ -28,3 +28,9 @@ export const Button = styled.button`
     transform: translateY(-2px);
   }
 `;
+
+export const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+`;

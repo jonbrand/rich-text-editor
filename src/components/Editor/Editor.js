@@ -36,7 +36,6 @@ export const CustomEditor = {
     const [match] = Editor.nodes(editor, {
       match: n => n.type === 'code',
     })
-    console.log(match)
     return !!match
   },
 
@@ -59,7 +58,7 @@ export const CustomEditor = {
   },
 
   toggleUnderlineMark(editor) {
-    const isActive = CustomEditor.isItalicMarkActive(editor)
+    const isActive = CustomEditor.isUnderlineMarkActive(editor)
     Editor.addMark(
       editor,
       'underline',

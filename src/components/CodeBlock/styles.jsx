@@ -7,8 +7,8 @@ export const Button = styled.button`
   outline: none;
   border: none;
 
-  min-width: 2rem;
-  max-width: 5rem;
+  width: 2rem;
+  height: 2rem;
   cursor: pointer;
 
   text-decoration: none;
@@ -19,14 +19,14 @@ export const Button = styled.button`
   align-items: center;
   border-radius: 5px;
 
-  padding: ${({ big }) => (big ? '16px 40px' : '14px 24px')};
-
-  color: ${({ primary }) => (primary ? '#FFF' : '#363f5f')};
-
-  font-size: ${({ big }) => (big ? '20px' : '14px')};
-
   &:hover {
     background: #969cb3;
     transform: translateY(-2px);
   }
+`;
+
+export const NavBtn = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
 `;
